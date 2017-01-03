@@ -20,8 +20,23 @@
 var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-function binary_search(search, array) {
+function binary_search(search, array, pos = 0) {
   // Your code here
+  var mid = Math.floor(array.length/2)
+  if (array.length < 2 || mid == 0){
+    return -1
+  }
+  if (array[mid] == search){
+    return pos + mid;
+  } else {
+    if (search > array[mid]){
+      array = array.slice(mid, array.length);
+      pos += mid;
+    } else {
+      array = array.slice(0, mid);
+    }
+    return binary_search(search, array, pos);
+  }
 }
 
 // Driver code
