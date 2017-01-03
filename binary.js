@@ -20,14 +20,24 @@
 var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-function binary_search(search, array) {
-  // Your code here
+function binary_search(search,array ) {
+ var mid = Math.floor(array.length / 2);
+  if (array[mid] === search) {
+      return array[mid];
+  } else if (array[mid] < search ) {
+
+    return  binary_search(search,array.splice(mid, array.length -1 ));
+  } else if (array[mid] > search ) {
+
+    return  binary_search(search,array.splice(0, mid));
+  }
+  else{return -1;}
 }
 
 // Driver code
-console.log(binary_search(5, test_array_a))
-console.log(binary_search(6, test_array_b))
-console.log(binary_search(10, test_array_a))
-console.log(binary_search(11, test_array_b))
-console.log(binary_search(2, test_array_a))
-console.log(binary_search(2, test_array_b))
+console.log(binary_search(5, test_array_a));
+console.log(binary_search(6, test_array_b));
+console.log(binary_search(10, test_array_a));
+console.log(binary_search(11, test_array_b));
+console.log(binary_search(2, test_array_b));
+console.log(binary_search(3, test_array_a));
