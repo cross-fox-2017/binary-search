@@ -22,6 +22,20 @@ var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
   // Your code here
+  var mid = Math.floor(array.length/2)
+  if (array.length < 2 || mid == 0){
+    return -1
+  }
+  if (array[mid] == search){
+    return mid;
+  } else {
+    if (search > array[mid]){
+      array = array.slice(mid, array.length);
+    } else {
+      array = array.slice(0, mid);
+    }
+    return binary_search(search, array);
+  }
 }
 
 // Driver code
