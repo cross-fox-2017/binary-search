@@ -2,7 +2,6 @@
 // test_array_a = (100..200).to_a
 // test_array_b = (100..201).to_a
 // puts binary_search(135, test_array) == 35
-
 // PSEUDOCODE
 // create a method, binary_search, that takes an object and an array as an input.
 // the object is the number we are testing for to find the index position
@@ -21,11 +20,30 @@ var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
-  // Your code here
-}
 
+let lowestIndex  = 0
+let highestIndex = array.length - 1
+let middleIndex = 0;
+
+  while (lowestIndex <= highestIndex) {
+    middleIndex = lowestIndex + (highestIndex - lowestIndex) / 2;
+    middleIndex = Math.ceil(middleIndex);
+
+    if (search < array[middleIndex]) {
+      highestIndex = middleIndex - 1;
+    }
+    else if (search > array[middleIndex]) {
+      lowestIndex = middleIndex + 1;
+    }
+    else {
+      return middleIndex;
+    }
+  }
+
+  return -1;
+}
 // Driver code
-console.log(binary_search(5, test_array_a))
+console.log(binary_search(20, test_array_a))
 console.log(binary_search(6, test_array_b))
 console.log(binary_search(10, test_array_a))
 console.log(binary_search(11, test_array_b))
