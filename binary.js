@@ -1,4 +1,4 @@
-// TESTS
+// binary_search
 // test_array_a = (100..200).to_a
 // test_array_b = (100..201).to_a
 // puts binary_search(135, test_array) == 35
@@ -21,13 +21,28 @@ var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
-  // Your code here
+  var index = 0;
+  index = Math.round(array.length / 2) - 1;
+  if (search == array[index]) {
+    return array[index]-1;
+  }
+  else if (search < array[index]) {
+    array.splice(index, index+1);
+    return binary_search(search, array);
+  }
+  else if (search > array[index]) {
+    array.splice(0, index+1);
+    return binary_search(search, array);
+  }
+  else {
+    return -1;
+  }
 }
 
 // Driver code
-console.log(binary_search(5, test_array_a))
-console.log(binary_search(6, test_array_b))
-console.log(binary_search(10, test_array_a))
-console.log(binary_search(11, test_array_b))
-console.log(binary_search(2, test_array_a))
-console.log(binary_search(2, test_array_b))
+console.log(binary_search(5, test_array_a)) //4
+console.log(binary_search(6, test_array_b)) //5
+console.log(binary_search(10, test_array_a)) //9
+console.log(binary_search(11, test_array_b)) //10
+console.log(binary_search(2, test_array_a)) //1
+console.log(binary_search(2, test_array_b)) //1
