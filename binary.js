@@ -21,7 +21,24 @@ var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
-  // Your code here
+var indexMin=0;
+var indexMax= array.length-1;
+var tengah=0;
+
+while(indexMin<=indexMax){
+  var indexTengah= Math.floor((indexMin+indexMax)/2);
+  tengah= array[indexTengah];
+if(search>tengah){
+  indexMin= indexTengah+1;
+}
+else if(search<tengah){
+  indexMax = indexTengah-1;
+}
+else{
+return indexTengah;
+}
+}
+return -1;
 }
 
 // Driver code
