@@ -22,6 +22,25 @@ var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
   // Your code here
+  var startIndex = 0,
+  	  stopIndex  = array.length - 1,
+  	  middle,
+  	  count = 0;
+
+  while(startIndex <= stopIndex){
+  	middle = ~~((startIndex+stopIndex) / 2);
+
+  	if(array[middle] < search){
+  		startIndex = middle + 1;
+  	}
+
+  	else if(array[middle] > search){
+  		stopIndex = middle - 1;
+  	} else{
+  		return middle;
+  	}
+  }
+  return - 1;
 }
 
 // Driver code
