@@ -21,13 +21,39 @@ var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
+
+      var small = 0;
+      var big = array.length;
+
+      while(true){
+
+          var center = Math.floor((small + big) / 2);
+
+          if(search == array[center]){
+
+                return center;
+          }else if(search > array[center]){
+
+                small= center;
+          }else{
+                big = center;
+          }
+
+      }
+
   // Your code here
 }
 
+
+
 // Driver code
 console.log(binary_search(5, test_array_a))
+
 console.log(binary_search(6, test_array_b))
-console.log(binary_search(10, test_array_a))
+
+console.log(binary_search(10, test_array_a)) 
 console.log(binary_search(11, test_array_b))
+
 console.log(binary_search(2, test_array_a))
+//
 console.log(binary_search(2, test_array_b))
