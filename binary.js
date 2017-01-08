@@ -24,21 +24,18 @@ function binary_search(search, array) {
   var first = 0, mid = 0, last = array.length-1;
   while (first<=last) {
     mid = Math.floor((last+first)/2);
-    if (search>array[mid]) {
+    if (search>array[mid])
       first= mid+1;
-    }
-    else if (search<array[mid]) {
+    else if (search<array[mid])
       last = mid-1;
-    }
-    else {
+    else
       return mid;
-    }
   }
   return -1;
 }
 // Driver code
 console.log(binary_search(51, test_array_a))
-console.log(binary_search(6, test_array_b))
+console.log(binary_search(60, test_array_b))
 console.log(binary_search(63, test_array_a))
 console.log(binary_search(11, test_array_b))
 console.log(binary_search(72, test_array_a))
