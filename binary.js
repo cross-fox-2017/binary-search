@@ -22,6 +22,22 @@ var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
   // Your code here
+  let min = 0;
+  let max = array.length;
+
+  while (min <= max) {
+  let mid = Math.floor((min+max) / 2);
+    if (search < array[mid]) {
+      max = mid -1
+    }
+    else if (search > array[mid]) {
+      min = mid +1
+    }
+    else {
+      return mid
+    }
+  }
+  return -1
 }
 
 // Driver code
