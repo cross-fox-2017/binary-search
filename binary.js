@@ -22,7 +22,21 @@ var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 function binary_search(search, array) {
   // Your code here
+  var pertama = 0;
+  var tengah = 0;
+  var akhir = array.length-1;
+  while (pertama <= akhir) {
+    tengah = Math.floor((pertama + akhir)/2);
+    if (search > array[tengah])
+      pertama = tengah + 1;
+    else if (search < array[tengah])
+      akhir = tengah - 1;
+    else
+      return tengah;
+  }
+  return -1;
 }
+
 
 // Driver code
 console.log(binary_search(5, test_array_a))
