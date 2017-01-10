@@ -26,13 +26,13 @@ function binary_search(search, array) {
   let max = array.length-1;
 
   while(min <= max){
-  let nilaiTengah = Math.floor((min + max)/2);
-  if(array[nilaiTengah] <= search){
-    min = nilaiTengah + 1 ;
-  }else if(array[nilaiTengah > search]){
+  var nilaiTengah = Math.floor((min + max)/2);
+
+  if(array[nilaiTengah] < search){
+    min = nilaiTengah + 1;
+  }else if(array[nilaiTengah] > search){
      max = nilaiTengah - 1;
-   }
-  return nilaiTengah;
+   }else{return nilaiTengah}
   }
   return -1;
 }
@@ -44,3 +44,34 @@ console.log(binary_search(10, test_array_a))
 console.log(binary_search(11, test_array_b))
 console.log(binary_search(2, test_array_a))
 console.log(binary_search(2, test_array_b))
+
+// var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+//
+// function binary_search(search, array) {
+//   var left = 0;
+//   var right = array.length-1;
+//
+//   while(left<=right){
+//     var mid = Math.floor((left+right)/2);
+//
+//     if(array[mid]<search){
+//       left = mid+1;
+//     }
+//     else if(array[mid]>search){
+//       right = mid-1
+//     }
+//     else{
+//       return mid;
+//     }
+//   }
+//   return -1;
+// }
+//
+// // Driver code
+// console.log(binary_search(5, test_array_a))
+// console.log(binary_search(6, test_array_b))
+// console.log(binary_search(10, test_array_a))
+// console.log(binary_search(11, test_array_b))
+// console.log(binary_search(2, test_array_a))
+// console.log(binary_search(2, test_array_b))
