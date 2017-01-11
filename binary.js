@@ -19,20 +19,53 @@
 
 var test_array_a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 var test_array_b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+// console.log(test_array_b.indexOf(8))
 
 function binary_search(search,array ) {
- var mid = Math.floor(array.length / 2);
-  if (array[mid] === search) {
-      return array[mid];
-  } else if (array[mid] < search ) {
 
-    return  binary_search(search,array.splice(mid, array.length -1 ));
-  } else if (array[mid] > search ) {
 
-    return  binary_search(search,array.splice(0, mid));
+//   function recursive(search,arrayX,arraySplice){
+//     var dup_arr = arrayX.slice()
+//
+//     var mid = Math.floor(arraySplice.length / 2);
+//
+//     if(arraySplice[mid] === search){
+//       // console.log(dup_arr)
+//       return true;
+//     }else if(arraySplice[mid] < search){
+//       return recursive(search,dup_arr,arraySplice.splice(mid,arraySplice.length -1))
+//     }else if(arraySplice[mid] >search){
+//       return recursive(search,dup_arr,arraySplice.splice(0,mid))
+//     }else {return -1}
+//   }
+//   var result = recursive(search,array,array);
+//   // console.log(result)
+//
+// return array.indexOf(result)
+
+var min=0;
+var arr = array.length-1;
+// var mid = Math.floor(array.length/2)
+  while(min <= search ){
+    var mid = Math.floor((min +arr)/2);
+    // var mid = Math.floor((min + arr)/2)
+    // console.log(mid)
+    if(search === array[mid]){
+      return mid;
+    }
+    else if(search < array[mid]){
+      arr = mid -1
+    }else if(search > array[mid]){
+      min = mid +1;
+    }
+    // return mid;
   }
-  else{return -1;}
+
+
 }
+// function binary_search(search,array){
+//   return array.indexOf(search)
+// }
 
 // Driver code
 console.log(binary_search(5, test_array_a));
@@ -41,3 +74,18 @@ console.log(binary_search(10, test_array_a));
 console.log(binary_search(11, test_array_b));
 console.log(binary_search(2, test_array_b));
 console.log(binary_search(3, test_array_a));
+
+// var fixArr = array;
+//
+// //console.log(fixArr);
+//
+//   if (fixArr[mid] === search) {
+//       return array.indexOf(mid);
+//   } else if (array[mid] < search ) {
+//
+//     return  binary_search(search,fixArr.splice(mid, fixArr.length -1 ));
+//   } else if (fixArr[mid] > search ) {
+//
+//     return  binary_search(search,fixArr.splice(0, mid));
+//   }
+//   else{return -1;}
